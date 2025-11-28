@@ -18,7 +18,19 @@ const routes = [
     path: '/signin',
     name: 'signin',
     component: SignInView
+  },
+  {
+    path: '/Navbar',
+    name: 'Navbar',
+    component:Navbar
+  },
+   {
+    path: '/Footer',
+    name: 'Footer',
+    component:Footer
+
   }
+
 ]
 
 const router = createRouter({
