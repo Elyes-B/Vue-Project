@@ -38,7 +38,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/login" class="nav-link" active-class="active">
+            <router-link to="/signin" class="nav-link" active-class="active">
               Login
             </router-link>
           </li>
