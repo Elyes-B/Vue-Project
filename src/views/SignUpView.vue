@@ -78,36 +78,10 @@
                   >
                 </div>
 
-                <div class="form-check mb-4">
-                  <input class="form-check-input" type="checkbox" id="terms" required>
-                  <label class="form-check-label small" for="terms">
-                    I agree to the <a href="#" class="text-purple text-decoration-none">Terms of Service</a> 
-                    and <a href="#" class="text-purple text-decoration-none">Privacy Policy</a>
-                  </label>
-                </div>
-
                 <button type="submit" class="btn btn-custom-primary w-100 py-3 fw-bold">
                   Create Account
                 </button>
               </form>
-
-              <div class="text-center my-4">
-                <span class="text-muted small bg-white px-3">Or sign up with</span>
-              </div>
-
-              <div class="row g-3 mb-4">
-                <div class="col-6">
-                  <button type="button" class="btn btn-outline-secondary w-100 py-2">
-                    <i class="fab fa-google me-2"></i> Google
-                  </button>
-                </div>
-                <div class="col-6">
-                  <button type="button" class="btn btn-outline-secondary w-100 py-2">
-                    <i class="fab fa-facebook me-2"></i> Facebook
-                  </button>
-                </div>
-              </div>
-
               <div class="text-center">
                 <span class="text-muted">Already have an account? </span>
                 <router-link to="/signin" class="text-purple fw-bold text-decoration-none">
@@ -139,7 +113,6 @@ export default {
   methods: {
     handleSignUp() {
       console.log('Sign up attempt:', this.form)
-      // Redirection temporaire vers la home page
       this.$router.push('/')
     }
   }
