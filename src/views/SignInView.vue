@@ -52,23 +52,6 @@
                 </button>
               </form>
 
-              <div class="text-center my-4">
-                <span class="text-muted small bg-white px-3">Or continue with</span>
-              </div>
-
-              <div class="row g-3 mb-4">
-                <div class="col-6">
-                  <button type="button" class="btn btn-outline-secondary w-100 py-2">
-                    <i class="fab fa-google me-2"></i> Google
-                  </button>
-                </div>
-                <div class="col-6">
-                  <button type="button" class="btn btn-outline-secondary w-100 py-2">
-                    <i class="fab fa-facebook me-2"></i> Facebook
-                  </button>
-                </div>
-              </div>
-
               <div class="text-center">
                 <span class="text-muted">Don't have an account? </span>
                 <router-link to="/signup" class="text-purple fw-bold text-decoration-none">
