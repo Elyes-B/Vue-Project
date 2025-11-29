@@ -1,14 +1,17 @@
 <template>
-  <HeaderView/>
+  <NavbarComponent/>
   <router-view/>
+  <FooterComponent/>
 </template>
 
 <script>
-import HeaderView from './views/HeaderView.vue';
+import NavbarComponent from './components/Navbar.vue';
+import FooterComponent from './components/Footer.vue';
 export default {
   name: 'App',
   components: {
-    HeaderView
+    NavbarComponent,
+    FooterComponent
   }
 }
 </script>
