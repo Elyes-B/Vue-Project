@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import SignUpView from '../views/SignUpView.vue'
 import SignInView from '../views/SignInView.vue'
 import CoursesView from '../views/CoursesView.vue'
+import CourseDetails from '../views/CourseDetails.vue'
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     path: '/courses',
     name: 'courses',
     component: CoursesView
+  },
+  {
+    path: '/courses/:id',
+    name: 'courseDetails',
+    props: true,
+    component: CourseDetails
   }
 ]
 

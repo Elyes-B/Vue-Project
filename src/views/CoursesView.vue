@@ -8,7 +8,6 @@
         </p>
       </div>
 
-      <!-- Search Bar -->
       <div class="row justify-content-center mb-5">
         <div class="col-md-8 col-lg-6">
           <div class="input-group">
@@ -18,19 +17,20 @@
         </div>
       </div>
 
-      <!-- Course List -->
       <div class="row justify-content-center gy-4">
         <div class="col-md-6 col-lg-4" v-for="course in filteredCourses" :key="course.id">
-          <div class="card h-100 course-card shadow-sm">
-            <img :src="course.imagePath" class="card-img-top" :alt="course.title" style="height: 180px; object-fit: cover;" />
-            <div class="card-body p-4 text-start">
-              <h5 class="card-title fw-bold mb-3 text-dark">{{ course.title }}</h5>
-              <p class="card-text text-secondary small mb-3">{{ course.description }}</p>
-              <div class="d-flex justify-content-between align-items-center border-top pt-3">
-                <span class="fw-bold text-purple">{{ course.numberOfClasses }} Classes</span>
+          <router-link :to="{ name: 'courseDetails', params: { id: course.id } }" class="course-link">
+            <div class="card h-100 course-card shadow-sm">
+              <img :src="course.imagePath" class="card-img-top" :alt="course.title" style="height: 180px; object-fit: cover;" />
+              <div class="card-body p-4 text-start">
+                <h5 class="card-title fw-bold mb-3 text-dark">{{ course.title }}</h5>
+                <p class="card-text text-secondary small mb-3">{{ course.description }}</p>
+                <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                  <span class="fw-bold text-purple">{{ course.numberOfClasses }} Classes</span>
+                </div>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </section>
@@ -38,26 +38,59 @@
 </template>
 
 <script>
-
+import service from "@/service/service";
 export default {
   name: 'CoursesView',
   data() {
     return {
       searchQuery: '',
-      courses:null
+      courses: null
     };
+  },
+  methods: {
+    searchCourse(course, query) {
+      const lowerQuery = query.toLowerCase();
+      const queryWords = lowerQuery.split(' ');
+      
+      for (let i = 0; i < queryWords.length; i++) {
+        const word = queryWords[i];
+        if (course.title.toLowerCase().includes(word) || 
+            course.description.toLowerCase().includes(word)) {
+          return course;
+        }
+      }
+      
+      return null;
+    }
   },
   computed: {
     filteredCourses() {
+      if (!this.courses) {
+        return [];
+      }
       if (!this.searchQuery) {
         return this.courses;
       }
-      const query = this.searchQuery.toLowerCase();
-      return this.courses.filter(course =>
-        course.title.toLowerCase().includes(query) ||
-        course.description.toLowerCase().includes(query)
-      );
+      
+      const results = [];
+      for (let i = 0; i < this.courses.length; i++) {
+        const course = this.courses[i];
+        const searchResult = this.searchCourse(course, this.searchQuery);
+        if (searchResult !== null) {
+          results.push(searchResult);
+        }
+      }
+      
+      return results;
     }
+  },
+  created(){
+    service.getCourses().then((response) => {
+      this.courses = response.data;
+    })
+    .catch((error) => {
+      console.error("Error fetching courses:", error);
+    });
   }
 };
 </script>
@@ -95,4 +128,13 @@ export default {
   overflow: hidden;
 }
 .course-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+.course-link {
+  text-decoration: none;
+  color: inherit;
+}
+.course-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
 </style>
