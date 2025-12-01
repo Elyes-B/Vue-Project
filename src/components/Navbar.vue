@@ -1,4 +1,5 @@
 <template>
+  <p>{{ student }}</p>
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
     <div class="container">
       <!-- Logo -->

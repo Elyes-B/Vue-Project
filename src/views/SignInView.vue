@@ -86,7 +86,6 @@ export default {
          this.$emit('signin-emitted', this.form);
           this.$router.push('/');
         } else {
-          // Invalid credentials
           alert('Invalid email or password. Please try again.');
         }
       }).catch((error) => {

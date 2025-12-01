@@ -69,6 +69,16 @@ import service from '@/service/service';
 
 export default {
   name: 'CourseDetails',
+  props: {
+    student: {
+      type: Object,
+      default: null
+    },
+    id: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       course: null,
@@ -78,7 +88,6 @@ export default {
       classes: []
     };
   },
-  props:['id'],
   created() {
     service.getCourseById(this.id).then((course) => {
       this.course = course || null;
@@ -101,6 +110,10 @@ export default {
 
   methods: {
     openForum() {
+        if (this.student == null) {
+            this.$router.push('/signin');
+            return;
+        }
       const enteredPassword = prompt('Enter class password:');
       if (enteredPassword !== null) {
         if (!this.classes || !this.classes.length) {
@@ -113,6 +126,15 @@ export default {
           this.selectedClass = matchedClass;
           this.password = enteredPassword;
           alert('Access granted! Welcome to ' + matchedClass.name);
+          service.postEnrollment({
+            student_id: this.student.id,
+            course_id: this.course.id,
+            class_id: this.selectedClass.class_id
+          }).then(() => {
+            console.log('Enrollment recorded successfully.');
+          }).catch((error) => {
+            console.error('Error recording enrollment:', error);
+          });
         } else {
           alert('Invalid password. Please try again.');
           this.selectedClass = null;

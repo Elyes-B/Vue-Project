@@ -32,4 +32,7 @@ export default {
   postStudent(student) {
     return apiClient.post('/student', student);
   }
+  ,postEnrollment(enrollment) {
+    return apiClient.post('/student_course_enrollment', enrollment);
+  }
 };

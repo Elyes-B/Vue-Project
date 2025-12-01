@@ -21,13 +21,19 @@ export default {
   },
   methods: {
     addUser(student) {
-      this.student = student;
       service.postStudent(student)
         .then(() => {
           console.log('Student added successfully');
         })
         .catch(error => {
           console.error('Error adding student:', error);
+        });
+        service.getStudentByEmail(student.email)
+        .then(foundStudent => {
+          this.student = foundStudent;
+        })
+        .catch(error => {
+          console.error('Error fetching student:', error);
         });
     },
     setStudent(student) {
