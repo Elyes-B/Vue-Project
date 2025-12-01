@@ -39,10 +39,10 @@
 
 <section class="bg-purple-light py-4">
   <div class="container d-flex justify-content-center flex-wrap gap-5 align-items-center">
-    <img class="brand-img" src="https://upload.wikimedia.org/wikipedia/commons/1/19/Duolingo_logo.svg" alt="Duolingo">
-    <img class="brand-img" src="https://seeklogo.com/images/M/magic-leap-logo-2BBC9E3E6F-seeklogo.com.png" alt="Magic Leap">
-    <img class="brand-img" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
-    <img class="brand-img" src="https://codecov.io/images/codecov_symbol_black.svg" alt="Codecov" style="opacity: 1; filter: none;">
+    <img class="brand-img" src="https://fr.wikipedia.org/wiki/Institut_sup%C3%A9rieur_d%27informatique_%28Tunisie%29" alt="ISI">
+    <img class="brand-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Rc7iw8azdVmOa56E2DP6pnm9Pr9LPZXUZw&s" alt="INSAT">
+    <img class="brand-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-BvUm_9LZu6yHieeoQFtEANcNFeXvUkymrdoGk1f11i5ueGcUJvK52wex5rAvGikDxa0&usqp=CAU" alt="FSB">
+    <img class="brand-img" src="https://www.universite.tn/images/universites-tunisie/logos/Instituts-Superieurs-des-Etudes-Technologiques.jpeg" alt="" style="opacity: 1; filter: none;">
     <img class="brand-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e1/User_icon_2.svg" alt="User Testing">
   </div>
 </section>
