@@ -1,0 +1,39 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "title": "Introduction to Vue 3",
+      "description": "Learn the fundamentals of Vue.js 3, including components, reactivity, and the composition API.",
+      "numberOfClasses": 10,
+      "imagePath": "/assets/logo.png"
+    },
+    {
+      "id": "2",
+      "title": "Advanced Vue Techniques",
+      "description": "Dive deep into advanced Vue concepts like custom directives, plugins, and performance optimization.",
+      "numberOfClasses": 15,
+      "imagePath": "/assets/logo.png"
+    },
+    {
+      "id": "3",
+      "title": "Vue with TypeScript",
+      "description": "Master building robust Vue applications using TypeScript for better type safety and maintainability.",
+      "numberOfClasses": 12,
+      "imagePath": "/assets/logo.png"
+    },
+    {
+      "id": "4",
+      "title": "State Management with Vuex",
+      "description": "Understand and implement global state management in Vue.js applications using Vuex.",
+      "numberOfClasses": 8,
+      "imagePath": "/assets/logo.png"
+    },
+    {
+      "id": "5",
+      "title": "Building RESTful APIs with Node.js",
+      "description": "Learn to create powerful backend APIs using Node.js and Express to power your Vue applications.",
+      "numberOfClasses": 20,
+      "imagePath": "/assets/logo.png"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 <template>
   <div class="min-vh-100 d-flex align-items-center" style="background: linear-gradient(135deg, #9578ff 0%, #ce73ff 100%);">
-    <div class="container mt-5 mb-5">
+    <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
           <div class="card shadow-lg border-0 rounded-4">
@@ -82,7 +82,7 @@
                   Create Account
                 </button>
               </form>
-              <div class="text-center">
+              <div class="text-center mt-4">
                 <span class="text-muted">Already have an account? </span>
                 <router-link to="/signin" class="text-purple fw-bold text-decoration-none">
                   Sign In
