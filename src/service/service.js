@@ -24,7 +24,9 @@ export default {
   getCourseById(id) {
     return apiClient.get(`/courses?id=eq.${id}`).then(res => res.data[0]);
   },
-
+  getEnrolmentByStudentAndCourse(studentId, courseId) {
+    return apiClient.get(`/student_course_enrollment?student_id=eq.${studentId}&course_id=eq.${courseId}`).then(res => res.data[0]);
+  },
   getClassesByCourseId(courseId) {
     return apiClient.get(`/classes?course_id=eq.${courseId}`).then(res => res.data);
   }

@@ -48,9 +48,11 @@
             <small>Password verified successfully</small>
           </div>
 
-          <button class="btn btn-outline-purple btn-lg w-100 mt-3" @click="openForum">
+          <button class="btn btn-outline-purple btn-lg w-100 mt-3" @click="openForum" :disabled="enroled">
             <i class="fas fa-comments"></i> {{ selectedClass ? 'Change Class' : 'Access Class' }}
           </button>
+
+          <p v-show="enroled" class="text-success mt-2">You are already enrolled in this course.</p>
         </div>
       </div>
 
@@ -85,10 +87,15 @@ export default {
       loading: true,
       selectedClass: null,
       password: '',
-      classes: []
+      classes: [],
+      enroled: false
     };
   },
   created() {
+    if (!this.student) {
+      this.$router.push('/signin');
+      return;
+    }
     service.getCourseById(this.id).then((course) => {
       this.course = course || null;
       if (!this.course) {
@@ -105,15 +112,19 @@ export default {
       this.classes = classes || [];
     }).catch((error) => {
       console.error("Error fetching classes:", error);
-    })
+    });
+
+    service.getEnrolmentByStudentAndCourse(this.student.id, this.id)
+      .then((enrolment) => {
+        this.enroled = enrolment !== null;
+      })
+      .catch((error) => {
+        console.error("Error fetching enrolment:", error);
+      });
   },
 
   methods: {
     openForum() {
-        if (this.student == null) {
-            this.$router.push('/signin');
-            return;
-        }
       const enteredPassword = prompt('Enter class password:');
       if (enteredPassword !== null) {
         if (!this.classes || !this.classes.length) {
