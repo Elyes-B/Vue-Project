@@ -32,7 +32,7 @@
                   <i class="fas fa-book text-purple fs-4 me-3"></i>
                   <div>
                     <p class="text-secondary mb-1 small">Available Classes</p>
-                    <h5 class="fw-bold text-dark">Classes: {{ classes.join(', ') }}</h5>
+                    <h5 class="fw-bold text-dark">Classes: {{ classNames.join(', ') }}</h5>
                   </div>
                 </div>
               </div>
@@ -80,24 +80,41 @@ export default {
       course: null,
       loading: true,
       selectedClass: null,
-      password: ''
+      password: '',
+      classes: []
     };
   },
   props:['id'],
   created() {
-    service.getCourseById(this.id).then((response) => {
-      this.course = response.data;
-      this.loading = false;
-    })
-    .catch((error) => {
+    service.getCourseById(this.id).then((course) => {
+      this.course = course || null;
+      if (!this.course) {
+        console.warn("Course not found for ID:", this.id);
+      }
+      else{
+        this.loading = false;
+      }
+    }).catch((error) => {
       console.error("Error fetching course details:", error);
     });
+
+    service.getClassesByCourseId(this.id).then((classes) => {
+      this.classes = classes || [];
+    }).catch((error) => {
+      console.error("Error fetching classes:", error);
+    })
   },
+
   methods: {
     openForum() {
       const enteredPassword = prompt('Enter class password:');
       if (enteredPassword !== null) {
-        const matchedClass = this.course.classes.find(cls => cls.password === enteredPassword);
+        if (!this.classes || !this.classes.length) {
+          alert('No classes available for this course.');
+          return;
+        }
+
+        const matchedClass = this.classes.find(cls => cls.password === enteredPassword);
         if (matchedClass) {
           this.selectedClass = matchedClass;
           this.password = enteredPassword;
@@ -111,14 +128,17 @@ export default {
     }
   },
   computed: {
-    classes() {
-    let cls = [];
-        for (let j = 0; j < this.course.classes.length; j++) {
-          cls.push(this.course.classes[j].name);
+    classNames() {
+        let result = [];
+      if (!this.classes || !this.classes.length) return [];
+      else{
+        for (let i = 0; i < this.classes.length; i++) {
+          result.push(this.classes[i].name);
         }
-      return cls;
+        return result;
+      }
     }
-}
+  }
 }
 </script>
 
