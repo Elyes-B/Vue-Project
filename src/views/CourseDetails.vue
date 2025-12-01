@@ -1,12 +1,6 @@
 <template>
   <div class="course-details-page">
     <section class="container py-5">
-      <div class="mb-4">
-        <router-link to="/courses" class="btn btn-outline-purple">
-          <i class="fas fa-arrow-left"></i> Back to Courses
-        </router-link>
-      </div>
-      
       <div v-if="loading" class="text-center my-5">
         <div class="spinner-border text-purple" role="status">
         </div><br>
