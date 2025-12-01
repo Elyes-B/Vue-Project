@@ -4,35 +4,105 @@
       "id": "1",
       "title": "Introduction to Vue 3",
       "description": "Learn the fundamentals of Vue.js 3, including components, reactivity, and the composition API.",
-      "numberOfClasses": 10,
+      "classes": [
+        { "name": "Vue Basics", "password": "vue123" },
+        { "name": "Components", "password": "comp456" },
+        { "name": "Reactivity", "password": "react789" },
+        { "name": "Composition API", "password": "comp010" },
+        { "name": "Lifecycle Hooks", "password": "life111" },
+        { "name": "Props & Emits", "password": "props212" },
+        { "name": "Slots", "password": "slots313" },
+        { "name": "Directives", "password": "dir414" },
+        { "name": "Watchers", "password": "watch515" },
+        { "name": "Advanced Patterns", "password": "adv616" }
+      ],
       "imagePath": "/assets/logo.png"
     },
     {
       "id": "2",
       "title": "Advanced Vue Techniques",
       "description": "Dive deep into advanced Vue concepts like custom directives, plugins, and performance optimization.",
-      "numberOfClasses": 15,
+      "classes": [
+        { "name": "Custom Directives", "password": "cdir717" },
+        { "name": "Plugins", "password": "plug818" },
+        { "name": "Performance Optimization", "password": "perf919" },
+        { "name": "Code Splitting", "password": "code020" },
+        { "name": "Testing", "password": "test121" },
+        { "name": "SSR Basics", "password": "ssr222" },
+        { "name": "State Management", "password": "state323" },
+        { "name": "Form Handling", "password": "form424" },
+        { "name": "Animation", "password": "anim525" },
+        { "name": "Advanced Patterns", "password": "adv626" },
+        { "name": "TypeScript Integration", "password": "ts727" },
+        { "name": "Debugging", "password": "debug828" },
+        { "name": "Error Handling", "password": "error929" },
+        { "name": "Security", "password": "sec030" },
+        { "name": "Deployment", "password": "deploy131" }
+      ],
       "imagePath": "/assets/logo.png"
     },
     {
       "id": "3",
       "title": "Vue with TypeScript",
       "description": "Master building robust Vue applications using TypeScript for better type safety and maintainability.",
-      "numberOfClasses": 12,
+      "classes": [
+        { "name": "TypeScript Basics", "password": "tsbasic232" },
+        { "name": "Vue + TS Setup", "password": "setup333" },
+        { "name": "Component Types", "password": "compts434" },
+        { "name": "Props Typing", "password": "propst535" },
+        { "name": "Emits Typing", "password": "emitst636" },
+        { "name": "Generics", "password": "gen737" },
+        { "name": "Advanced Types", "password": "advts838" },
+        { "name": "Decorators", "password": "dec939" },
+        { "name": "Interfaces", "password": "int040" },
+        { "name": "Best Practices", "password": "best141" },
+        { "name": "Refactoring", "password": "ref242" },
+        { "name": "Testing TS", "password": "testts343" }
+      ],
       "imagePath": "/assets/logo.png"
     },
     {
       "id": "4",
       "title": "State Management with Vuex",
       "description": "Understand and implement global state management in Vue.js applications using Vuex.",
-      "numberOfClasses": 8,
+      "classes": [
+        { "name": "Vuex Basics", "password": "vuex444" },
+        { "name": "State", "password": "state545" },
+        { "name": "Getters", "password": "get646" },
+        { "name": "Mutations", "password": "mut747" },
+        { "name": "Actions", "password": "act848" },
+        { "name": "Modules", "password": "mod949" },
+        { "name": "Plugins", "password": "plug050" },
+        { "name": "Debugging", "password": "debug151" }
+      ],
       "imagePath": "/assets/logo.png"
     },
     {
       "id": "5",
       "title": "Building RESTful APIs with Node.js",
       "description": "Learn to create powerful backend APIs using Node.js and Express to power your Vue applications.",
-      "numberOfClasses": 20,
+      "classes": [
+        { "name": "Node.js Basics", "password": "node252" },
+        { "name": "Express Setup", "password": "exp353" },
+        { "name": "Routing", "password": "route454" },
+        { "name": "Middleware", "password": "mid555" },
+        { "name": "Controllers", "password": "ctrl656" },
+        { "name": "Models", "password": "model757" },
+        { "name": "Database", "password": "db858" },
+        { "name": "Authentication", "password": "auth959" },
+        { "name": "Authorization", "password": "authz060" },
+        { "name": "Error Handling", "password": "erh161" },
+        { "name": "Testing APIs", "password": "testapi262" },
+        { "name": "Documentation", "password": "doc363" },
+        { "name": "Deployment", "password": "deploy464" },
+        { "name": "Security", "password": "sec565" },
+        { "name": "Performance", "password": "perf666" },
+        { "name": "Scaling", "password": "scale767" },
+        { "name": "Monitoring", "password": "mon868" },
+        { "name": "Advanced Patterns", "password": "adv969" },
+        { "name": "GraphQL", "password": "graph070" },
+        { "name": "Microservices", "password": "micro171" }
+      ],
       "imagePath": "/assets/logo.png"
     }
   ]

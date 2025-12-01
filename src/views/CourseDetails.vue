@@ -6,14 +6,14 @@
           <i class="fas fa-arrow-left"></i> Back to Courses
         </router-link>
       </div>
-
+      
       <div v-if="loading" class="text-center my-5">
         <div class="spinner-border text-purple" role="status">
         </div><br>
         <span class="text-purple">Loading...</span>
       </div>
 
-
+      
       <div v-else-if="course" class="row">
         <div class="col-lg-6 mb-4">
           <img :src="course.imagePath" :alt="course.title" class="img-fluid rounded-4" style="width: 100%; max-height: 500px; object-fit: cover;" />
@@ -32,7 +32,7 @@
                   <i class="fas fa-book text-purple fs-4 me-3"></i>
                   <div>
                     <p class="text-secondary mb-1 small">Number of Classes</p>
-                    <h5 class="fw-bold text-dark">{{ course.numberOfClasses }} Classes</h5>
+                    <h5 class="fw-bold text-dark">{{ course.classes.length }} Classes</h5>
                   </div>
                 </div>
               </div>
@@ -48,8 +48,14 @@
             </div>
           </div>
 
-          <button class="btn btn-custom-primary btn-lg w-100">
-            <i class="fas fa-play-circle"></i> Enroll Now
+          <div v-if="selectedClass" class="alert alert-success mb-4">
+            <h5 class="alert-heading"><i class="fas fa-check-circle"></i> Access Granted!</h5>
+            <p class="mb-1"><strong>Class:</strong> {{ selectedClass.name }}</p>
+            <small>Password verified successfully</small>
+          </div>
+
+          <button class="btn btn-outline-purple btn-lg w-100 mt-3" @click="openForum">
+            <i class="fas fa-comments"></i> {{ selectedClass ? 'Change Class' : 'Access Class' }}
           </button>
         </div>
       </div>
@@ -73,17 +79,36 @@ export default {
     return {
       course: null,
       loading: true,
+      selectedClass: null,
+      password: ''
     };
   },
   props:['id'],
- created() {
-   service.getCourseById(this.id).then((response) => {
+  created() {
+    service.getCourseById(this.id).then((response) => {
       this.course = response.data;
-        this.loading = false;
+      this.loading = false;
     })
     .catch((error) => {
       console.error("Error fetching course details:", error);
     });
+  },
+  methods: {
+    openForum() {
+      const enteredPassword = prompt('Enter class password:');
+      if (enteredPassword !== null) {
+        const matchedClass = this.course.classes.find(cls => cls.password === enteredPassword);
+        if (matchedClass) {
+          this.selectedClass = matchedClass;
+          this.password = enteredPassword;
+          alert('Access granted! Welcome to ' + matchedClass.name);
+        } else {
+          alert('Invalid password. Please try again.');
+          this.selectedClass = null;
+          this.password = '';
+        }
+      }
+    }
   }
 };
 </script>
