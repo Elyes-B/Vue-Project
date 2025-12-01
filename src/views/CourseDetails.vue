@@ -31,8 +31,8 @@
                 <div class="d-flex align-items-center">
                   <i class="fas fa-book text-purple fs-4 me-3"></i>
                   <div>
-                    <p class="text-secondary mb-1 small">Number of Classes</p>
-                    <h5 class="fw-bold text-dark">{{ course.classes.length }} Classes</h5>
+                    <p class="text-secondary mb-1 small">Available Classes</p>
+                    <h5 class="fw-bold text-dark">Classes: {{ classes.join(', ') }}</h5>
                   </div>
                 </div>
               </div>
@@ -109,8 +109,17 @@ export default {
         }
       }
     }
-  }
-};
+  },
+  computed: {
+    classes() {
+    let cls = [];
+        for (let j = 0; j < this.course.classes.length; j++) {
+          cls.push(this.course.classes[j].name);
+        }
+      return cls;
+    }
+}
+}
 </script>
 
 <style scoped>
