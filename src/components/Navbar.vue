@@ -32,12 +32,17 @@
               Courses
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="student">
+            <span class="nav-link student-name">
+              Welcome, {{ student.first_name }} {{ student.last_name }}
+            </span>
+          </li>
+          <li class="nav-item" v-if="!student">
             <router-link to="/signup" class="nav-link" active-class="active">
               Sign Up
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="!student">
             <router-link to="/signin" class="nav-link" active-class="active">
               Login
             </router-link>
@@ -50,7 +55,13 @@
 
 <script>
 export default {
-  name: "NavbarComponent"
+  name: "NavbarComponent",
+  props: {
+    student: {
+      type: Object,
+      default: null
+    }
+  }
 };
 </script>
 
@@ -69,6 +80,16 @@ export default {
 .nav-link.active {
   font-weight: 700;
   color: #6a49c4 !important;
+}
+
+.student-name {
+  color: #6a49c4 !important;
+  font-weight: 600;
+  cursor: default;
+}
+
+.student-name:hover {
+  color: #8a6aff !important;
 }
 
 .navbar {

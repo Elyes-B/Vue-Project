@@ -97,8 +97,16 @@
 </template>
 
 <script>
+import service from "@/service/service";
+
 export default {
   name: 'SignUpView',
+  props: {
+    student: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
       form: {
@@ -107,13 +115,37 @@ export default {
         email: '',
         password: '',
         confirmPassword: ''
-      }
+      },
+      studentExists: false,
+      studentFound: null
     }
   },
   methods: {
     handleSignUp() {
-      console.log('Sign up attempt:', this.form)
-      this.$router.push('/')
+      service.getStudentByEmail(this.form.email)
+        .then(exists => {
+          this.studentExists = true;
+          this.studentFound = exists;
+        })
+        .catch(error => {
+          console.error('Error checking student existence:', error);
+        });
+      let submitForm = {
+        first_name: this.form.firstName,
+        last_name: this.form.lastName,
+        email: this.form.email,
+        password: this.form.password
+      }
+      if (this.form.password !== this.form.confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+      else if (this.studentExists) {
+        alert("An account with this email already exists.");
+        return;
+      }
+      this.$emit('signup-emitted', submitForm);
+      this.$router.push('/');
     }
   }
 }

@@ -1,10 +1,11 @@
 <template>
-  <NavbarComponent/>
-  <router-view/>
+  <NavbarComponent :student="student"/>
+  <router-view @signup-emitted="addUser" @signin-emitted="setStudent" :student="student"/>
   <FooterComponent/>
 </template>
 
 <script>
+import service from '@/service/service';
 import NavbarComponent from './components/Navbar.vue';
 import FooterComponent from './components/Footer.vue';
 export default {
@@ -12,6 +13,32 @@ export default {
   components: {
     NavbarComponent,
     FooterComponent
+  }
+  ,data() {
+    return {
+      student: null
+    };
+  },
+  methods: {
+    addUser(student) {
+      this.student = student;
+      service.postStudent(student)
+        .then(() => {
+          console.log('Student added successfully');
+        })
+        .catch(error => {
+          console.error('Error adding student:', error);
+        });
+    },
+    setStudent(student) {
+      service.getStudentByEmail(student.email)
+        .then(foundStudent => {
+          this.student = foundStudent;
+        })
+        .catch(error => {
+          console.error('Error fetching student:', error);
+        });
+    }
   }
 }
 </script>

@@ -67,6 +67,8 @@
 </template>
 
 <script>
+import service from '@/service/service';
+
 export default {
   name: 'SignInView',
   data() {
@@ -79,9 +81,19 @@ export default {
   },
   methods: {
     handleSignIn() {
-      console.log('Sign in attempt:', this.form)
-      // Redirection temporaire vers la home page
-      this.$router.push('/')
+      service.getStudentByEmail(this.form.email).then((student) => {
+        if (student && student.password === this.form.password) {
+         this.$emit('signin-emitted', this.form);
+          this.$router.push('/');
+        } else {
+          // Invalid credentials
+          alert('Invalid email or password. Please try again.');
+        }
+      }).catch((error) => {
+        console.error('Error during sign-in:', error);
+        alert('An error occurred. Please try again later.');
+      });
+      
     }
   }
 }
