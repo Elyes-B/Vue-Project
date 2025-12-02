@@ -48,8 +48,8 @@
             <small>Password verified successfully</small>
           </div>
 
-          <button class="btn btn-outline-purple btn-lg w-100 mt-3" @click="openForum" :disabled="enroled">
-            <i class="fas fa-comments"></i> {{ selectedClass ? 'Change Class' : 'Access Class' }}
+          <button class="btn btn-outline-purple btn-lg w-100 mt-3" @click="openForum" :disabled="enroled || selectedClass">
+            <i class="fas fa-comments"></i> Access class
           </button>
 
           <p v-show="enroled" class="text-success mt-2">You are already enrolled in this course.</p>

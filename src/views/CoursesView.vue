@@ -23,7 +23,7 @@
         <div class="col-md-6 col-lg-4" v-for="course in filteredCourses" :key="course.id">
           <router-link :to="{ name: 'courseDetails', params: { id: course.id } }" class="course-link">
             <div class="card h-100 course-card shadow-sm">
-              <img :src="course.imagePath" class="card-img-top" :alt="course.title" style="height: 180px; object-fit: cover;" />
+              <img :src="course.imagePath" class="card-img-top" :alt="course.title" style="height: 300px; object-fit: cover;" />
               <div class="card-body p-4 text-start">
                 <h5 class="card-title fw-bold mb-3 text-dark">{{ course.title }}</h5>
                 <p class="card-text text-secondary small mb-3">{{ course.description }}</p>
