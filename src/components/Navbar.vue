@@ -45,6 +45,9 @@
               Login
             </router-link>
           </li>
+          <li class="nav-item" v-if="student" @click="logout">
+            <router-link to="/" class="nav-link" active-class="active">Logout</router-link>
+            </li>
         </ul>
       </div>
     </div>
@@ -58,6 +61,11 @@ export default {
     student: {
       type: Object,
       default: null
+    }
+  },
+  methods: {
+    logout() {
+      this.$emit('logout-emitted');
     }
   }
 };

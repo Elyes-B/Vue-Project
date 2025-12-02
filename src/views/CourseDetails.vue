@@ -114,9 +114,14 @@ export default {
       console.error("Error fetching classes:", error);
     });
 
-    service.getEnrolmentByStudentAndCourse(this.student.id, this.id)
+    service.getEnrolmentByStudent(this.student.id)
       .then((enrolment) => {
-        this.enroled = enrolment !== null;
+        for (let i = 0; i < enrolment.length; i++) {
+          if (enrolment[i].course_id === Number(this.id)) {
+            this.enroled = true;
+            break;
+          }
+        }
       })
       .catch((error) => {
         console.error("Error fetching enrolment:", error);
@@ -132,7 +137,7 @@ export default {
           return;
         }
 
-        const matchedClass = this.classes.find(cls => cls.password === enteredPassword);
+        const matchedClass = this.classes.find(classItem => classItem.password === enteredPassword);
         if (matchedClass) {
           this.selectedClass = matchedClass;
           this.password = enteredPassword;

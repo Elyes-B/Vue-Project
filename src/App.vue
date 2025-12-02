@@ -1,6 +1,6 @@
 <template>
-  <NavbarComponent :student="student"/>
-  <router-view @signup-emitted="addUser" @signin-emitted="setStudent" :student="student"/>
+  <NavbarComponent :student="student" @logout-emitted="clearStudent"/>
+  <router-view @signup-emitted="addUser" @signin-emitted="setStudent"  :student="student"/>
   <FooterComponent/>
 </template>
 
@@ -44,6 +44,9 @@ export default {
         .catch(error => {
           console.error('Error fetching student:', error);
         });
+    },
+    clearStudent() {
+      this.student = null;
     }
   }
 }
