@@ -61,9 +61,7 @@
                     placeholder="Create a password"
                     required
                   >
-                  <div class="form-text">
-                    Must be at least 8 characters with numbers and symbols
-                  </div>
+                  
                 </div>
 
                 <div class="mb-3">
