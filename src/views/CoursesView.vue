@@ -8,7 +8,7 @@
         </p>
       </div>
 
-      <!-- Search Bar -->
+
       <div class="row justify-content-center mb-5">
         <div class="col-md-8 col-lg-6">
           <div class="input-group">
@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <!-- Course List -->
+
       <div class="row justify-content-center gy-4">
         <div class="col-md-6 col-lg-4" v-for="course in filteredCourses" :key="course.id">
           <router-link :to="{ name: 'courseDetails', params: { id: course.id } }" class="course-link">

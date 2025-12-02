@@ -64,7 +64,7 @@ export default {
     }
     service.getEnrolmentByStudent(this.student.id)
       .then((enrolments) => {
-        if (!enrolments) {
+        if (enrolments.length === 0) {
           this.loading = false;
           return;
         }
