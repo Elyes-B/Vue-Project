@@ -3,7 +3,6 @@
     <div class="container">
       <div class="row">
 
-        <!-- About / Brand -->
         <div class="col-md-4 mb-4">
           <h5 class="fw-bold">Etech Learning</h5>
           <p class="small">
@@ -11,18 +10,16 @@
           </p>
         </div>
 
-        <!-- Quick Links -->
         <div class="col-md-4 mb-4">
           <h6 class="fw-bold">Quick Links</h6>
           <ul class="list-unstyled">
             <li><router-link to="/" class="text-white text-decoration-none">Home</router-link></li>
             <li><router-link to="/courses" class="text-white text-decoration-none">Courses</router-link></li>
             <li><router-link to="/signup" class="text-white text-decoration-none">Sign Up</router-link></li>
-            <li><router-link to="/login" class="text-white text-decoration-none">Login</router-link></li>
+            <li><router-link to="/signin" class="text-white text-decoration-none">Login</router-link></li>
           </ul>
         </div>
 
-        <!-- Contact -->
         <div class="col-md-4 mb-4">
           <h6 class="fw-bold">Contact Us</h6>
           <ul class="list-unstyled small">
