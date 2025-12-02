@@ -121,6 +121,11 @@ export default {
       default: null
     }
   },
+  created() {
+    if (this.student) {
+      this.$router.push('/dashboard');
+    }
+  },
   watch: {
     student(newVal) {
       if (newVal) {
@@ -141,7 +146,7 @@ export default {
         { name: "James Johnson", comment: "Highly recommend! The personalized feedback and real-world application are amazing." }
       ]
     }
-  }
+  },
 }
 </script>
 

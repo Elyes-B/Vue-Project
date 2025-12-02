@@ -45,8 +45,8 @@
               Login
             </router-link>
           </li>
-          <li class="nav-item" v-if="student" @click="logout">
-            <router-link to="/" class="nav-link" active-class="active">Logout</router-link>
+          <li class="nav-item" v-if="student">
+            <a href="#" class="nav-link" @click="logout">Logout</a>
             </li>
         </ul>
       </div>
@@ -66,6 +66,7 @@ export default {
   methods: {
     logout() {
       this.$emit('logout-emitted');
+      this.$router.push('/');
     }
   }
 };

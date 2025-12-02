@@ -31,6 +31,10 @@ export default {
     return apiClient.get(`/classes?course_id=eq.${courseId}`).then(res => res.data);
   }
 ,
+  getAllClasses() {
+    return apiClient.get('/classes').then(res => res.data);
+  }
+  ,
   postStudent(student) {
     return apiClient.post('/student', student);
   }

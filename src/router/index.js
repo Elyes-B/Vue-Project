@@ -5,6 +5,7 @@ import SignInView from '../views/SignInView.vue'
 import CoursesView from '../views/CoursesView.vue'
 import CourseDetails from '../views/CourseDetails.vue'
 import StudentDashboard from '../views/StudentDashboard.vue'
+import CoursesContent from '../views/CoursesContent.vue'
 
 const routes = [
   {
@@ -38,6 +39,12 @@ const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: StudentDashboard,
+  },
+  {
+    path: '/coursesContent/:id',
+    name: 'coursesContent',
+    component: CoursesContent,
+    props: true
   }
 ]
 

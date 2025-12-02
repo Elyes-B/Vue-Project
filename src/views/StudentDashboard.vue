@@ -23,7 +23,7 @@
                 <p class="card-text text-secondary mb-2">{{ course.description}}</p>
                 <p class="mb-1"><strong>Class:</strong> {{ classes[i]}}</p>
                 <div class="d-grid gap-2 mt-3">
-                  <button class="btn btn-outline-purple">Open Course</button>
+                  <router-link :to="{ name: 'coursesContent', params: { id: course.id } }" class="btn btn-outline-purple">Open Course</router-link>
                 </div>
               </div>
             </div>
@@ -65,15 +65,15 @@ export default {
     service.getEnrolmentByStudent(this.student.id)
       .then((enrolments) => {
         if (!enrolments) {
-          this.courses = [];
           this.loading = false;
           return;
         }
+        console.log("Fetched enrolments:", enrolments);
         this.enrolments = enrolments;
         for (let i = 0; i < enrolments.length; i++) {
           const enrolment = enrolments[i];
         service.getCourseById(enrolment.course_id).then((course) => {
-          this.courses = course ? [course] : [];
+          this.courses.push(course);
           this.loading = false;
         });
       }

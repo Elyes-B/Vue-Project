@@ -141,7 +141,6 @@ export default {
         if (matchedClass) {
           this.selectedClass = matchedClass;
           this.password = enteredPassword;
-          alert('Access granted! Welcome to ' + matchedClass.name);
           service.postEnrollment({
             student_id: this.student.id,
             course_id: this.course.id,
